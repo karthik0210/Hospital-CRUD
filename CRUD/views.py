@@ -2,6 +2,12 @@ from django.shortcuts import redirect, render
 from .models import Patients
 # Create your views here.
 
+def Signup(request):
+     return render(request,'Signup.html')
+
+def Login(request):
+     return render(request,'Login.html')
+
 def INDEX(request):
     pat=Patients.objects.all()
     context = {
