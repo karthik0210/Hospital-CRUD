@@ -18,16 +18,20 @@
                 <div class="log">
                     <div class="h">
                     <h4>Log-in</h4></div>
-                <form action="">
+                    {% for message in messages %}
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <strong>{{message}}</strong>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    {% endfor %}
+                <form action="" method="POST">
+                    {% csrf_token %}
                     <div class="mb-3">  
-                        <!-- <label for="Username" class="form-label">Username</label> -->
-                        <input type="text" class="form-control" id="name" name="Username" value="" placeholder="Username" required>
-
-                        <!-- <label for="Password" class="form-label">Password</label> -->
-                        <input type="password" class="form-control" id="Password" placeholder="Password" required>
+                        <input type="text" class="form-control" id="name" name="username" value="" placeholder="Username" required>
+                        <input type="password" class="form-control" id="Password" name="password" placeholder="Password" required>
                         <br>
                             
-                        <a href="{% url 'home' %}" class="btn btn-primary">Login</a>                
+                        <button class="btn btn-primary">Login</button>                
                     </div>
                 </form>
                 </div>

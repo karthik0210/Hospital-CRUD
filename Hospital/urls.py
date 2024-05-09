@@ -23,7 +23,7 @@ from CRUD import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.Signup,name='signup'),
-    path('login', views.Login,name='login'),
+    path('login', views.handlelogin,name='handlelogin'),
     path('home',views.INDEX,name='home'),
     path('add',views.ADD,name='add'),
     path('edit',views.Edit,name='edit'),

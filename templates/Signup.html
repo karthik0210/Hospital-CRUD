@@ -17,16 +17,22 @@
                 <div class="log">
                     <div class="h">
                     <h4>Sign-Up</h4>
+                    {% for message in messages %}
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <strong>{{message}}</strong>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    {% endfor %}
                 </div>
-                <form action="">
+                <form action="" method="POST">
+                    {% csrf_token %}
                     <div class="mb-3">
-                        <input type="text" class="form-control" placeholder="Username" required>
-                            <input type="email" class="form-control" placeholder="Email" required>
-                            <input type="password" class="form-control" placeholder="Password" required>
-                            <input type="password" class="form-control" placeholder="Confirm-Password" required>
-                            <!-- <button type="button" class="btn btn-primary" value="signup">Sign-up</button>    -->
+                        <input type="text" class="form-control" placeholder="Username" name="username" required>
+                            <input type="email" class="form-control" placeholder="Email" name="email" required>
+                            <input type="password" class="form-control" placeholder="Password" name="password" required>
+                            <input type="password" class="form-control" placeholder="Confirm_Password" name="cpassword" required>   
                         <br>                           
-                        <a href="{% url 'login' %}" class="btn btn-primary">Sign-up</a>                 
+                        <button class="btn btn-primary">Sign-Up</button>                 
                     </div>
                 </form>
                 </div>
